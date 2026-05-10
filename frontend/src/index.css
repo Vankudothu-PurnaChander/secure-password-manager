@@ -1,0 +1,229 @@
+@import 'tailwindcss';
+
+/* Base reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Page-specific unique beach/ocean themed backgrounds */
+.page-login {
+  background-image: url('https://tse2.mm.bing.net/th/id/OIP.lQe-jAqDinuigGih2AjKUQHaEn?pid=ImgDet&w=474&h=295&rs=1&o=7&rm=3'); /* Ocean waves */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-login::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 50, 100, 0.4);
+  z-index: -1;
+}
+
+.page-register {
+  background-image: url('https://tse1.mm.bing.net/th/id/OIP.CfnfljHsENcAVDmM6zXg8AHaEo?pid=ImgDet&w=474&h=296&rs=1&o=7&rm=3'); /* Sandy beach sunset */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-register::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(100, 50, 0, 0.3);
+  z-index: -1;
+}
+
+.page-otp {
+  background-image: url('https://images.unsplash.com/photo-1544611201-080f775fa77b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); /* Tropical beach */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-otp::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 100, 50, 0.3);
+  z-index: -1;
+}
+
+.page-dashboard {
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); /* Beach aerial view */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-dashboard::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(50, 100, 150, 0.4);
+  z-index: -1;
+}
+
+.page-profile {
+  background-image: url('https://images.unsplash.com/photo-1533105079780-92b0de68f974?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); /* Palm beach paradise */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-profile::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 80, 120, 0.4);
+  z-index: -1;
+}
+
+/* Default fallback for other pages */
+.page-default {
+  background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.page-default::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 40, 80, 0.4);
+  z-index: -1;
+}
+
+/* Professional, elegant, attractive styles */
+@layer components {
+  .card-professional {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-professional::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  }
+
+  .card-professional:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25), 0 8px 32px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.18);
+  }
+
+  .btn-professional {
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-professional::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-professional:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .btn-professional:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  .form-input {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 16px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 0 4px rgba(255,255,255,0.1);
+    transform: translateY(-1px);
+  }
+
+  .form-input::placeholder {
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Page-unique accent colors */
+  .page-login .btn-professional { border-color: #60a5fa; }
+  .page-register .btn-professional { border-color: #f59e0b; }
+  .page-otp .btn-professional { border-color: #10b981; }
+  .page-dashboard .btn-professional { border-color: #8b5cf6; }
+  .page-profile .btn-professional { border-color: #06b6d4; }
+}
