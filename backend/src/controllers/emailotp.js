@@ -1,5 +1,5 @@
 const nodemailer=require("nodemailer");
-const {userCreation} =require("./User");
+const {userCreation} =require("./user");
 require('dotenv').config();
 const jwt = require("jsonwebtoken");
 
