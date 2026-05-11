@@ -25,6 +25,9 @@ function setTokenCookie(res, userId, email) {
 }
 
 async function registration(req,res){
+   console.log("LOGIN API HIT");
+  console.log(req.body);
+
   try{
     let {email,password}=req.body;
     email=normalize(email);
@@ -45,6 +48,9 @@ async function registration(req,res){
 }
 
 async function login(req, res) {
+   console.log("LOGIN API HIT");
+  console.log(req.body);
+
   try {
     let {email, password} = req.body;
     email= normalize(email);
