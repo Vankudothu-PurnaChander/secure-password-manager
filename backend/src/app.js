@@ -11,7 +11,7 @@ const datarouter = require('./routers/datarouter');
 app.use(express.json());
 app.use(helmet());
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: "https://secure-password-manager-seven.vercel.app/",
   credentials: true
 }));
 

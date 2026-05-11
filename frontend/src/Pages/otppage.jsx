@@ -23,7 +23,7 @@ function Otppage(){
         e.preventDefault();
         try{
             const email = location.state?.email || localStorage.getItem("email");
-            const res=await axios.post("http://localhost:5000/api/verifyotp",{email:email,otp:formData.otp},{withCredentials:true});
+            const res=await axios.post("https://secure-password-manager-jcil.onrender.com/api/verifyotp",{email:email,otp:formData.otp},{withCredentials:true});
             console.log(res.data);
             if(res.status === 200){
                 login();

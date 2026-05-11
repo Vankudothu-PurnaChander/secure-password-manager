@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
     
     try{
     
-       const forotps=await axios.post("http://localhost:5000/api/forotp",{email:formData.email,password:formData.password},{withCredentials:true});
+       const forotps=await axios.post("https://secure-password-manager-jcil.onrender.com/api/forotp",{email:formData.email,password:formData.password},{withCredentials:true});
        localStorage.setItem("email",formData.email);
       navigate("/otppage", {replace:true, state: { email: formData.email } });
       console.log(forotps.data);

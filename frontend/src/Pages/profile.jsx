@@ -10,7 +10,7 @@ function Profile(){
     
     const handlelogout=async()=>{
     try{
-        const res=await axios.delete("http://localhost:5000/api/logout",{withCredentials:true});
+        const res=await axios.delete("https://secure-password-manager-jcil.onrender.com/api/logout",{withCredentials:true});
         if(res.status===200){
             logout();
             alert("User loggedout Successfully.");
@@ -25,7 +25,7 @@ function Profile(){
     return(
         <div className="flex flex-col gap-2">
             <h1 className="text-3xl font-bold text-orange-600">Update Profile</h1>
-            <Link to="/profile/update" className="underlined to-blue-900"></Link>
+            <Link to="/profile/update" className="underlined to-blue-900">Update Profile</Link>
             <Button className="bg-sky-800" type="button" text="Logout" onClick={handlelogout}></Button>
         </div>
     )

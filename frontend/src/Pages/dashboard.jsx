@@ -35,7 +35,7 @@ const navigate=useNavigate();
         // Backend will create it on first save if it doesn't exist.
        if (mode === 'retrieve') {
           const res = await axios.post(
-          "http://localhost:5000/api/getdata",
+          "https://secure-password-manager-jcil.onrender.com/api/getdata",
           { masterkey },
           { withCredentials: true }
           );
@@ -51,7 +51,7 @@ const navigate=useNavigate();
         }else {
           // save mode (backend will set master key if it doesn't exist)
           await axios.post(
-            "http://localhost:5000/api/adddata",
+            "https://secure-password-manager-jcil.onrender.com/api/adddata",
             { ...formData, masterkey },
             { withCredentials: true }
           );

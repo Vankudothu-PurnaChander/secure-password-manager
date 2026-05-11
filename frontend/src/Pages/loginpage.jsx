@@ -23,7 +23,7 @@ function Loginpage() {
     e.preventDefault();
     try{
        const res= await axios.post(
-        "http://localhost:5000/api/login",
+        "https://secure-password-manager-jcil.onrender.com/api/login",
         formData,
         {withCredentials:true}
         

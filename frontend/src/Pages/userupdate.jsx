@@ -11,7 +11,7 @@ function Update(){
     const handleSubmit=async(e)=>{
         e.preventDefault();
     try{
-        const res=await axios.patch("http://localhost:5000/api/updatepassword",formData,{withCredentials:true})
+        const res=await axios.patch("https://secure-password-manager-jcil.onrender.com/api/updatepassword",formData,{withCredentials:true})
         console.log(res.data)
         alert("User data updated Successfully .");
 
