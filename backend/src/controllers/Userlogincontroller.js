@@ -111,33 +111,15 @@ async function logout(req, res) {
     return res.status(401).json({message: 'No active session to logout'});
   }
   res.clearCookie("token", {
-    httpOnly: false,
-    secure: false,
-    sameSite: "lax",
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
     path: "/"
   });
   return res.status(200).json({message: 'User logged out successfully'});
 }
  
-async function forgotpassword(req,res){
-  try{
-    const {email}=req.body;
-  if(!email){
-    return res.status(400).json({message:'email is required'});
-  }
-  const user= await User.findOne({email:normalize(email)});
-  if(!user){
-    return res.status(404).json({message:'User not found'});
-  }
-  await emailotp.forotp(req,res);
-  
-  return res.status(200).json({message:'OTP sent to email if user exists'});
-  }
-  catch(err){
-    console.error('Error in forgot password:', err);
-    return res.status(500).json({message:'Internal server error'}); 
 
-}}
 
 
 module.exports = {registration,login, updatepassword, logout};

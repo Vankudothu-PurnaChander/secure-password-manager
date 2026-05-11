@@ -40,7 +40,7 @@ function Otppage(){
             console.log(err.response?.data);
         }
     }
-    const [timer,settimer]=useState(150);
+    const [timer,settimer]=useState(90);
     
 useEffect(()=>{
         const timeleft= setInterval(()=>{
