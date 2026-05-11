@@ -32,10 +32,15 @@ const handleSubmit = async (e) => {
        
     }
     catch(err){
-      console.error("Registration failed:", err);
-    
-       }
-  };
+
+  console.error("FULL ERROR:", err);
+
+  console.log("BACKEND RESPONSE:", err.response?.data);
+
+  console.log("STATUS:", err.response?.status);
+
+  alert(err.response?.data?.message || "Registration failed");
+}
   const reset=()=>{
          setFormData({
           email:"",
