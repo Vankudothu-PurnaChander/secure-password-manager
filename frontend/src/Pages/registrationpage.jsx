@@ -41,6 +41,7 @@ const handleSubmit = async (e) => {
 
   alert(err.response?.data?.message || "Registration failed");
 }
+}
   const reset=()=>{
          setFormData({
           email:"",
