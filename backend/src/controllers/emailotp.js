@@ -13,8 +13,8 @@ function setTokenCookie(res, userId, email) {
   );
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
     maxAge: 1000 * 60 * 60 * 1
   });
 }
@@ -39,19 +39,32 @@ const sendotp=async(email,otp)=>{
 
 const otpStore={}
 const forotp = async (req, res) => {
-  const { email,password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-  const otp = Math.floor(100000 + Math.random() * 900000);
-  otpStore[email] = {
-    password,
-    otp: otp,
-    expiresAt: Date.now() + 90 * 1000
-  };
+    const otp = Math.floor(100000 + Math.random() * 900000);
 
-  await sendotp(email, otp);
+    otpStore[email] = {
+      password,
+      otp,
+      expiresAt: Date.now() + 90 * 1000
+    };
 
-  res.send("OTP sent successfully");
+    await sendotp(email, otp);
+
+    return res.status(200).json({
+      message: "OTP sent successfully"
+    });
+
+  } catch (err) {
+    console.error("OTP ERROR:", err);
+
+    return res.status(500).json({
+      message: "Failed to send OTP"
+    });
+  }
 };
+
 
 const verifyotp = async (req, res) => {
   const { email,otp } = req.body;
