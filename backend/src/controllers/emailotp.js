@@ -18,23 +18,38 @@ function setTokenCookie(res, userId, email) {
     maxAge: 1000 * 60 * 60 * 1
   });
 }
+const sendotp = async (email, otp) => {
 
-const sendotp=async(email,otp)=>{
-    const transporter= nodemailer.createTransport({
-        service:"gmail",
-        auth:{
-            user:process.env.ADMIN_EMAIL,
-            pass:process.env.ADMIN_PASSWORD
-        }
+  try {
+
+    console.log("ADMIN EMAIL:", process.env.ADMIN_EMAIL);
+    console.log("SENDING OTP TO:", email);
+
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.ADMIN_EMAIL,
+        pass: process.env.ADMIN_PASSWORD
+      }
     });
-    const mailOptions = {
-        from:process.env.ADMIN_EMAIL,
-        to: email,
-        subject: "OTP Verification for Password Manager.",
-        text: `Your OTP is: ${otp}`
-  };
 
-  await transporter.sendMail(mailOptions);
+    const mailOptions = {
+      from: process.env.ADMIN_EMAIL,
+      to: email,
+      subject: "OTP Verification for Password Manager",
+      text: `Your OTP is: ${otp}`
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log("EMAIL SENT:", info.response);
+
+  } catch (err) {
+
+    console.error("NODEMAILER ERROR:", err);
+
+    throw err;
+  }
 };
 
 const otpStore={}
