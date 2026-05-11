@@ -17,8 +17,8 @@ function setTokenCookie(res, userId, email) {
   );
   res.cookie("token", token, {
     httpOnly: true,
-    secure: false,
-    sameSite: "lax",
+    secure: true,
+    sameSite: "none",
     maxAge: 1000 * 60 * 60 * 1,
     path: "/"
   });
